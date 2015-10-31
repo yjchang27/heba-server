@@ -4,8 +4,6 @@ import (
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
 	"gopkg.in/gorp.v1"
-	"log"
-	"time"
 )
 
 type User struct {
@@ -56,4 +54,6 @@ func initDb() *gorp.DbMap {
 	// create the table.
 	err = dbmap.CreateTablesIfNotExists()
 	checkErr(err, "Create tables failed")
+
+	return dbmap
 }
